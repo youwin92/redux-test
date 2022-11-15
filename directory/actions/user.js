@@ -1,17 +1,47 @@
-const login = (data) => {
+const logIn = (data) => { // async action creator
+    return (dispatch, getState) => { // async action
+        dispatch(logInRequest(data));
+        try {
+            setTimeout(() => {
+                dispatch(logInSuccess({
+                    userId: 1,
+                    nickname: 'zerocho'
+                }));
+            }, 2000);
+        } catch (e) {
+            dispatch(logInFailure(e));
+        }
+    };
+};
+
+const logInRequest = (data) => {
     return {
-        type: "LOG_IN",
+        type: 'LOG_IN_REQUEST',
         data,
     }
 };
-const logout = () => {
+
+const logInSuccess = (data) => {
     return {
-        type: "LOG_OUT"
+        type: 'LOG_IN_SUCCESS',
+        data,
     }
 };
 
-module.exports = {
-    login,
-    logout
+const logInFailure = (error) => {
+    return {
+        type: 'LOG_IN_FAILURE',
+        error,
+    }
+};
 
-}
+const logOut = () => {
+    return { // action
+        type: 'LOG_OUT',
+    };
+};
+
+module.exports = {
+    logIn,
+    logOut,
+};
