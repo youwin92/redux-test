@@ -1,3 +1,5 @@
+//https://github.com/ZeroCho/redux-vs-mobx
+
 const { createStore } = require('redux');
 
 const reducer = (prevState, action) => {

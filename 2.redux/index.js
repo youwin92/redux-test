@@ -4,7 +4,7 @@ const { addPost } = require('./actions/post');
 const { logIn, logOut } = require('./actions/user');
 
 
-// https://github.com/ZeroCho/redux-vs-mobx/blob/master/2.redux/index2.js
+// https://github.com/ZeroCho/redux-vs-mobx
 
 const initialState = {
     user: {
